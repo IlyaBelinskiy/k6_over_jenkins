@@ -1,0 +1,84 @@
+tarted by user Belinskiy Ilya Igorevich
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in C:\ProgramData\Jenkins\.jenkins\workspace\k6 tests - Pipeline with Docker
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (k6)
+[Pipeline] node
+Running on Jenkins in C:\ProgramData\Jenkins\.jenkins\workspace\k6 tests - Pipeline with Docker@2
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\k6 tests - Pipeline with Docker@2>docker inspect -f . "grafana/k6" 
+.
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] withDockerContainer
+Jenkins does not seem to be running inside a container
+$ docker run -d -t --entrypoint= -w "C:/ProgramData/Jenkins/.jenkins/workspace/k6 tests - Pipeline with Docker@2/" -v "C:/ProgramData/Jenkins/.jenkins/workspace/k6 tests - Pipeline with Docker@2/:C:/ProgramData/Jenkins/.jenkins/workspace/k6 tests - Pipeline with Docker@2/" -v "C:/ProgramData/Jenkins/.jenkins/workspace/k6 tests - Pipeline with Docker@2@tmp/:C:/ProgramData/Jenkins/.jenkins/workspace/k6 tests - Pipeline with Docker@2@tmp/" -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** grafana/k6 cmd.exe
+[Pipeline] // withDockerContainer
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Also:   org.jenkinsci.plugins.workflow.actions.ErrorAction$ErrorId: 2eefaa75-0c37-4e58-9056-920a19d3f5b7
+java.io.IOException: Failed to run image 'grafana/k6'. Error: docker: Error response from daemon: the working directory 'C:/ProgramData/Jenkins/.jenkins/workspace/k6 tests - Pipeline with Docker@2/' is invalid, it needs to be an absolute path.
+See 'docker run --help'.
+	at org.jenkinsci.plugins.docker.workflow.client.WindowsDockerClient.run(WindowsDockerClient.java:58)
+	at org.jenkinsci.plugins.docker.workflow.WithContainerStep$Execution.start(WithContainerStep.java:200)
+	at org.jenkinsci.plugins.workflow.cps.DSL.invokeStep(DSL.java:323)
+	at org.jenkinsci.plugins.workflow.cps.DSL.invokeMethod(DSL.java:196)
+	at org.jenkinsci.plugins.workflow.cps.CpsScript.invokeMethod(CpsScript.java:124)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.call(PogoMetaClassSite.java:47)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:116)
+	at com.cloudbees.groovy.cps.sandbox.DefaultInvoker.methodCall(DefaultInvoker.java:20)
+	at org.jenkinsci.plugins.workflow.cps.LoggingInvoker.methodCall(LoggingInvoker.java:105)
+	at org.jenkinsci.plugins.docker.workflow.Docker$Image.inside(Docker.groovy:140)
+	at org.jenkinsci.plugins.docker.workflow.Docker.node(Docker.groovy:66)
+	at org.jenkinsci.plugins.docker.workflow.Docker$Image.inside(Docker.groovy:125)
+	at org.jenkinsci.plugins.docker.workflow.declarative.DockerPipelineScript.runImage(DockerPipelineScript.groovy:54)
+	at org.jenkinsci.plugins.docker.workflow.declarative.AbstractDockerPipelineScript.configureRegistry(AbstractDockerPipelineScript.groovy:63)
+	at org.jenkinsci.plugins.docker.workflow.declarative.AbstractDockerPipelineScript.run(AbstractDockerPipelineScript.groovy:50)
+	at org.jenkinsci.plugins.pipeline.modeldefinition.agent.CheckoutScript.checkoutAndRun(CheckoutScript.groovy:64)
+	at org.jenkinsci.plugins.pipeline.modeldefinition.agent.CheckoutScript.doCheckout(CheckoutScript.groovy:40)
+	at org.jenkinsci.plugins.pipeline.modeldefinition.agent.impl.LabelScript.run(LabelScript.groovy:43)
+	at ___cps.transform___(Native Method)
+	at com.cloudbees.groovy.cps.impl.ContinuationGroup.methodCall(ContinuationGroup.java:90)
+	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.dispatchOrArg(FunctionCallBlock.java:116)
+	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.fixArg(FunctionCallBlock.java:85)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at com.cloudbees.groovy.cps.impl.ContinuationPtr$ContinuationImpl.receive(ContinuationPtr.java:72)
+	at com.cloudbees.groovy.cps.impl.ClosureBlock.eval(ClosureBlock.java:46)
+	at com.cloudbees.groovy.cps.Next.step(Next.java:83)
+	at com.cloudbees.groovy.cps.Continuable$1.call(Continuable.java:152)
+	at com.cloudbees.groovy.cps.Continuable$1.call(Continuable.java:146)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.use(GroovyCategorySupport.java:136)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport.use(GroovyCategorySupport.java:275)
+	at com.cloudbees.groovy.cps.Continuable.run0(Continuable.java:146)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.access$001(SandboxContinuable.java:18)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.run0(SandboxContinuable.java:51)
+	at org.jenkinsci.plugins.workflow.cps.CpsThread.runNextChunk(CpsThread.java:187)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup.run(CpsThreadGroup.java:423)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup$2.call(CpsThreadGroup.java:331)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup$2.call(CpsThreadGroup.java:295)
+	at org.jenkinsci.plugins.workflow.cps.CpsVmExecutorService$2.call(CpsVmExecutorService.java:97)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at hudson.remoting.SingleLaneExecutorService$1.run(SingleLaneExecutorService.java:139)
+	at jenkins.util.ContextResettingExecutorService$1.run(ContextResettingExecutorService.java:28)
+	at jenkins.security.ImpersonatingExecutorService$1.run(ImpersonatingExecutorService.java:68)
+	at jenkins.util.ErrorLoggingExecutorService.lambda$wrap$0(ErrorLoggingExecutorService.java:51)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Finished: FAILURE
